@@ -40,11 +40,18 @@ public class DataInitializer implements CommandLineRunner {
     }
 
     private Phone createRandomPhone() {
-        String number = faker.phoneNumber().phoneNumber();
-        String cityCode = faker.phoneNumber().extension();
-        String countryCode = String.format("%03d", faker.random().nextInt(1000));
-
+        String number = generateRandomNumericValue(10);  // Genera un número de 10 dígitos
+        String cityCode = generateRandomNumericValue(3); // Genera un número de 3 dígitos
+        String countryCode = generateRandomNumericValue(3); // Genera un número de 3 dígitos
 
         return new Phone(number, cityCode, countryCode);
+    }
+
+    private String generateRandomNumericValue(int length) {
+        StringBuilder numericValue = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            numericValue.append(faker.random().nextInt(10)); // Agrega un dígito numérico aleatorio
+        }
+        return numericValue.toString();
     }
 }

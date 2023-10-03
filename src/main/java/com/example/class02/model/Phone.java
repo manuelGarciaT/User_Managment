@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @JsonPropertyOrder({"id", "number", "citycode", "countrycode"})
@@ -13,8 +14,13 @@ public class Phone {
     @JsonIgnore
     private Long id;
 
+    @Pattern(regexp = "^[0-9]+$", message = "Number is not valid. Only numeric values are allowed.")
     private String number;
+
+    @Pattern(regexp = "^[0-9]+$", message = "CityCode is not valid. Only numeric values are allowed.")
     private String cityCode;
+
+    @Pattern(regexp = "^[0-9]+$", message = "CountryCode is not valid. Only numeric values are allowed.")
     private String countryCode;
 
     public Phone() {

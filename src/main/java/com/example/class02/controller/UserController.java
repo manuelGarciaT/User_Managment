@@ -33,6 +33,7 @@ public class UserController {
 
 	@PostMapping
 	public ResponseEntity<AppUser> createUser(@RequestBody AppUser user) {
+		user.setId(null); //ignora id en create user
 		userService.saveUserWithPhones(user);
 		return new ResponseEntity<>(user, HttpStatus.CREATED);
 	}
