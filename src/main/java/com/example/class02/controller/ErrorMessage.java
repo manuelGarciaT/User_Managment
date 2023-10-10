@@ -15,5 +15,4 @@ public class ErrorMessage {
         this.mensaje = mensaje;
     }
 
-    // Getters y setters
 }
