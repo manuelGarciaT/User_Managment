@@ -1,13 +1,20 @@
 package com.example.class02.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.Pattern;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import io.swagger.annotations.ApiModelProperty;
-
-import javax.persistence.*;
-import javax.validation.constraints.Pattern;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @JsonPropertyOrder({"id", "name", "email", "password", "phones"})
@@ -83,7 +90,7 @@ public class AppUser {
     }
 
     public void removePhone(Phone phone) {
-        phones.remove(phone);
-    }
+		phones.remove(phone);
+	}
 
 }
